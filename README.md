@@ -2,7 +2,7 @@
 This is a container setup for [ENVISIoN](https://github.com/rartino/ENVISIoN) and [Inviwo](https://github.com/inviwo/inviwo) project.
 
 ## Dependencies
-Install docker through the official [site](https://docs.docker.com/install/) or through your package manager (Exmaples using Ubuntu 18.04)
+Install docker through the official [site](https://docs.docker.com/install/) or through your package manager (Examples using Ubuntu 18.04)
 
     sudo apt-get install docker-ce docker-ce-cli containerd.io
 
@@ -20,7 +20,7 @@ Enter and run the build script
     cd ENVISIoN-docker
     ./bin/build.sh
 
-After the image has been build run the install script
+After the image has been built run the install script
 
     ./bin/install.sh
 

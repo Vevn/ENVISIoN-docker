@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo "git clone ENVISIoN..."
 if [ ! -d "ENVISIoN" ]; then
     git clone https://github.com/rartino/ENVISIoN

@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/bin/bash
 xhost +local:docker
-./bin/run.sh ./inviwo-build/bin/inviwo
+source ./bin/run.sh ./inviwo-build/bin/inviwo

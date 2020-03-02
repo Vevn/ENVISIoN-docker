@@ -34,6 +34,9 @@ Inviwo
 Envision
 
     ./bin/envision.sh
+    
+## File management
+Because of how the container is setup, if you wish to load files into Inviwo or Envision you must place said files in the same directory as the container is run from. Most common this will  be your ENVISIoN-docker cloned directory.
 
 ## TODO
 Currently the install version of envision and inviwo is hard set to latest and v0.9.10 respectivly.

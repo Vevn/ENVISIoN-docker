@@ -1,8 +1,4 @@
 #!/bin/bash
-echo "creating ENVISIoN directory..."
-mkdir -p ENVISIoN
-cd ENVISIoN
-
 echo "git clone ENVISIoN..."
 if [ ! -d "ENVISIoN" ]; then
     git clone https://github.com/rartino/ENVISIoN

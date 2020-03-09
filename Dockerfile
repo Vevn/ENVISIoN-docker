@@ -45,10 +45,13 @@ RUN apt-get upgrade
 
 RUN pip3 install --upgrade pip
 RUN pip3 install \
+         numpy \
+         scipy \
+         matplotlib \
          cmake
 
 RUN useradd -ms /bin/bash docker
 USER docker
 
-VOLUME /home/docker
-WORKDIR /home/docker
+VOLUME /home/docker/ENVISIoN
+WORKDIR /home/docker/ENVISIoN

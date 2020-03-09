@@ -1,4 +1,8 @@
 #!/bin/bash
+echo "creating ENVISIoN directory..."
+mkdir -p ENVISIoN
+cd ENVISIoN
+
 echo "git clone ENVISIoN..."
 if [ ! -d "ENVISIoN" ]; then
     git clone https://github.com/rartino/ENVISIoN
@@ -12,20 +16,20 @@ if [ ! -d "inviwo" ]; then
 else
     echo "Inviwo already exists, skipping clone"
 fi
-echo "checking out v0.9.10"
+
+echo "checking out v0.9.10..."
 cd inviwo
 git checkout v0.9.10
 
-echo "updating submodules"
+echo "updating submodules..."
 git submodule update --init --recursive
 cd ..
 
-VOL=/data
-echo "applying patches"
-git apply $VOL/ENVISIoN/inviwo/patches/2019/transferfunctionFix.patch
-git apply $VOL/ENVISIoN/inviwo/patches/2019/deb-package.patch
-git apply $VOL/ENVISIoN/inviwo/patches/2019/paneProperty2019.patch
-git apply $VOL/ENVISIoN/inviwo/patches/2019/sysmacro.patch
+echo "applying patches..."
+git apply ~/ENVISIoN/ENVISIoN/inviwo/patches/2019/transferfunctionFix.patch
+git apply ~/ENVISIoN/ENVISIoN/inviwo/patches/2019/deb-package.patch
+git apply ~/ENVISIoN/ENVISIoN/inviwo/patches/2019/paneProperty2019.patch
+git apply ~/ENVISIoN/ENVISIoN/inviwo/patches/2019/sysmacro.patch
 
 
 echo "building inviwo"

@@ -39,7 +39,7 @@ RUN apt-get install -y \
         qttools5-dev \
         git \
         nodejs \
-        npm 
+        npm
 
 RUN apt-get upgrade
 
@@ -47,8 +47,8 @@ RUN pip3 install --upgrade pip
 RUN pip3 install \
          cmake
 
-VOLUME /data
-WORKDIR /data
-
 RUN useradd -ms /bin/bash docker
 USER docker
+
+VOLUME /home/docker
+WORKDIR /home/docker

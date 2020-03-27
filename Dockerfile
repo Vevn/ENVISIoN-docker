@@ -39,9 +39,10 @@ RUN apt-get install -y \
         qttools5-dev \
         git \
         nodejs \
-        npm
+        npm \
+        wget
 
-RUN apt-get upgrade
+RUN apt-get upgrade -y
 
 RUN pip3 install --upgrade pip
 RUN pip3 install \

@@ -42,7 +42,9 @@ RUN apt-get install -y \
         npm \
         wget
 
+
 RUN apt-get upgrade -y
+
 
 RUN pip3 install --upgrade pip
 RUN pip3 install \
@@ -50,6 +52,8 @@ RUN pip3 install \
          scipy \
          matplotlib \
          cmake
+
+RUN apt-get install -y dos2unix
 
 RUN useradd -ms /bin/bash docker
 USER docker

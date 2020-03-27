@@ -1,17 +1,9 @@
 #!/bin/bash
 echo "git clone ENVISIoN..."
-if [ ! -d "ENVISIoN" ]; then
-    git clone https://github.com/rartino/ENVISIoN
-else
-    echo "ENVISIoN already exists, skipping clone"
-fi
+git clone https://github.com/rartino/ENVISIoN
 
-if [ ! -d "inviwo" ]; then
-    echo "git clone inviwo"
-    git clone https://github.com/inviwo/inviwo.git
-else
-    echo "Inviwo already exists, skipping clone"
-fi
+echo "git clone inviwo"
+git clone https://github.com/inviwo/inviwo.git
 
 echo "checking out v0.9.10..."
 cd inviwo

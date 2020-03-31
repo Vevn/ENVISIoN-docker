@@ -1,31 +1,43 @@
 #!/bin/bash
+
+# this stops the script on the first error
+set -e
+
+# ENVISIoN
 echo "git clone ENVISIoN..."
-git clone https://github.com/rartino/ENVISIoN
+if [ ! -d "ENVISIoN" ]; then
+    git clone https://github.com/rartino/ENVISIoN
+fi
 
-echo "git clone inviwo"
-git clone https://github.com/inviwo/inviwo.git
+# INVIWO
+if [ ! -d "inviwo" ]; then
+    echo "git clone inviwo"
+    git clone https://github.com/inviwo/inviwo.git
 
-echo "checking out v0.9.10..."
-cd inviwo
-git checkout v0.9.10
+    echo "checking out v0.9.10..."
+    cd inviwo
+    git checkout v0.9.10
 
-echo "updating submodules..."
-git submodule update --init --recursive
-cd ..
+    echo "updating submodules..."
+    git submodule update --init --recursive
 
-echo "applying patches..."
-git apply ~/ENVISIoN/ENVISIoN/inviwo/patches/2019/transferfunctionFix.patch
-git apply ~/ENVISIoN/ENVISIoN/inviwo/patches/2019/deb-package.patch
-git apply ~/ENVISIoN/ENVISIoN/inviwo/patches/2019/paneProperty2019.patch
-git apply ~/ENVISIoN/ENVISIoN/inviwo/patches/2019/sysmacro.patch
+    echo "applying patches..."
+    git apply ~/ENVISIoN/ENVISIoN/inviwo/patches/2019/transferfunctionFix.patch
+    git apply ~/ENVISIoN/ENVISIoN/inviwo/patches/2019/deb-package.patch
+    git apply ~/ENVISIoN/ENVISIoN/inviwo/patches/2019/paneProperty2019.patch
+    git apply ~/ENVISIoN/ENVISIoN/inviwo/patches/2019/sysmacro.patch
+    git apply ~/ENVISIoN/ENVISIoN/inviwo/patches/2019/inviwo-v0.9.10-extlibs.patch
 
+    cd ..
+fi
 
 echo "building inviwo"
 mkdir -p inviwo-build
 cd inviwo-build
 
+export QT_SELECT=5
 cmake -G "Unix Makefiles" \
-    -DCMAKE_PREFIX_PATH="$QTTOOLDIR/.." \
+    -DCMAKE_PREFIX_PATH="/opt/Qt/5.14.1/" \
     -DCMAKE_C_COMPILER="gcc-8" \
     -DCMAKE_CXX_COMPILER="g++-8" \
     -DIVW_HDF5_USE_EXTERNAL:BOOL=ON \

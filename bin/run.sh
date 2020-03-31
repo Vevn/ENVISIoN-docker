@@ -1,6 +1,7 @@
 #!/bin/bash
 source ./bin/env.sh
 
+xhost +local:docker
 docker run \
     --rm \
     --name envision \

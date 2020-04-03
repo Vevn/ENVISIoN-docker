@@ -37,7 +37,7 @@ cd inviwo-build
 
 export QT_SELECT=5
 cmake -G "Unix Makefiles" \
-    -DCMAKE_PREFIX_PATH="/opt/Qt/5.14.1/" \
+    -DCMAKE_PREFIX_PATH="/opt/Qt/5.14.1/gcc_64/lib/cmake" \
     -DCMAKE_C_COMPILER="gcc-8" \
     -DCMAKE_CXX_COMPILER="g++-8" \
     -DIVW_HDF5_USE_EXTERNAL:BOOL=ON \

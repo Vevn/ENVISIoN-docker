@@ -10,6 +10,12 @@ xhost is required, it can be obtained through.
 
     sudo apt-get install x11-xserver-utils
 
+# Qt build script
+To use the noninteractive install script you must add your Qt login details.
+In `qt-install-noninteractive.qs` row 15 and 16.
+Replace {email} in `EmailLineEdit.setText("{your email}")` with your qt email and
+replace {password} in `PasswordLineEdit.setText("{password}")` with your qt password.
+
 ## Building
 Clone this repository
 
@@ -34,7 +40,7 @@ Inviwo
 Envision
 
     ./bin/envision.sh
-    
+
 ## File management
 Because of how the container is setup, if you wish to load files into Inviwo or Envision you must place said files in the same directory as the container is run from. Most common this will  be your ENVISIoN-docker cloned directory.
 

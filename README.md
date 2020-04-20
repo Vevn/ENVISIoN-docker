@@ -44,5 +44,13 @@ Envision
 ## File management
 Because of how the container is setup, if you wish to load files into Inviwo or Envision you must place said files in the same directory as the container is run from. Most common this will  be your ENVISIoN-docker cloned directory.
 
+## Known Issues
+### Inviwo Process
+When creating a new python process in inviwo the new process will not show up in the process list. This is most likely due to `~/.inviwo` folder not being accessed as a mounted volume. To create a python process please place the python script here: `inviwo/modules/python3/processors`.
+
+### Nvidia
+Currently opengl cannot be initiated when starting inviwo. This issue is only observed on computers with nvidia drivers.
+There is no fix.
+
 ## TODO
 Currently the install version of envision and inviwo is hard set to latest and v0.9.10 respectivly.

@@ -1,4 +1,8 @@
 #!/bin/bash
 cd ENVISIoN
+
+export INVIWO_HOME=/home/docker/ENVISIoN/inviwo-build/bin
 export ELECTRON_DISABLE_SANDBOX=1
-npm start 
+export PYTHONIOENCODING=utf-8
+
+npm run start

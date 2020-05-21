@@ -12,8 +12,10 @@ RUN apt-get install -y \
         gcc-8 \
         git \
         libasound2 \
+        libgtk-3-0 \
         libegl1-mesa \
         libfontconfig1 \
+        libfreetype6 \
         libgdk-pixbuf2.0-0 \
         libgl1-mesa-glx \
         libglu1-mesa-dev \
@@ -40,13 +42,15 @@ RUN apt-get install -y \
         python3-pip \
         python3-regex \
         python3.7 \
-        qtchooser
+        qtchooser \
+        zlib1g-dev
 
 RUN apt-get upgrade -y
 
 # more dependencies through pip
 RUN pip3 install --upgrade pip
 RUN pip3 install \
+         h5py \
          numpy \
          scipy \
          matplotlib \
@@ -68,8 +72,11 @@ RUN qtchooser -install opt-qt5.14.1 /opt/Qt/5.14.1/gcc_64/bin/qmake
 RUN useradd -ms /bin/bash docker
 USER docker
 
-# add qt path to profile
+# user system variables
 RUN echo "export PATH=/opt/Qt/${QT_VERSION}/gcc_64/bin/:$PATH" >> ~/.profile
+RUN echo "export LANG=en_US.utf-8" >> ~/.profile
+RUN echo "export LC_ALL=en_US.utf-8" >> ~/.profile
+RUN echo "alias python=python3" >> ~/.profile
 
 VOLUME /home/docker/ENVISIoN
 WORKDIR /home/docker/ENVISIoN

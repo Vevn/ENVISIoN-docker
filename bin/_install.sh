@@ -11,12 +11,12 @@ fi
 
 # INVIWO
 if [ ! -d "inviwo" ]; then
-    echo "git clone inviwo"
+    echo "git clone inviwo..."
     git clone https://github.com/inviwo/inviwo.git
 
-    echo "checking out v0.9.10..."
+    echo "checking out v0.9.11..."
     cd inviwo
-    git checkout v0.9.10
+    git checkout v0.9.11
 
     echo "updating submodules..."
     git submodule update --init --recursive
@@ -31,7 +31,7 @@ if [ ! -d "inviwo" ]; then
     cd ..
 fi
 
-echo "building inviwo"
+echo "building inviwo..."
 mkdir -p inviwo-build
 cd inviwo-build
 
@@ -40,8 +40,8 @@ cmake -G "Unix Makefiles" \
     -DCMAKE_PREFIX_PATH="/opt/Qt/5.14.1/gcc_64/lib/cmake" \
     -DCMAKE_C_COMPILER="gcc-8" \
     -DCMAKE_CXX_COMPILER="g++-8" \
-    -DIVW_HDF5_USE_EXTERNAL:BOOL=ON \
-    -DIVW_IMG_USE_EXTERNAL:BOOL=ON \
+    -DBUILD_SHARED_LIBS=ON \
+    -DIVW_USE_EXTERNAL_HDF5:BOOL=ON \
     -DIVW_EXTERNAL_MODULES="$HOME/ENVISIoN/ENVISIoN/inviwo/modules" \
     -DIVW_MODULE_CRYSTALVISUALIZATION=ON \
     -DIVW_MODULE_FERMI=OFF \

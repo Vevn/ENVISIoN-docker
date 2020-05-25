@@ -53,4 +53,4 @@ Currently opengl cannot be initiated when starting inviwo. This issue is only ob
 There is no fix.
 
 ## TODO
-Currently the install version of envision and inviwo is hard set to latest and v0.9.10 respectivly.
+Currently the install version of envision and inviwo is hard set to latest and v0.9.11 respectivly.

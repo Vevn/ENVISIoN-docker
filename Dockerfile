@@ -54,7 +54,8 @@ RUN pip3 install \
          numpy \
          scipy \
          matplotlib \
-         cmake
+         cmake \
+         pytest
 
 # QT install
 ARG QT_MAJOR=5.14
